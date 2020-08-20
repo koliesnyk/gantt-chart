@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Start Template</title>
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="libs/frappe/frappe-gantt.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<div class="file-page" id="container">
+		<div class="buttons">
+			<button class="btn browse">Select / Browse to Image</button>
+			<button class="btn capture">Capture image</button>
+		</div>
+		<div class="inputs">
+			<input type="file" class="hidden file-input" multiple accept="image/*capture=camera" id="Image" />
+			<input type="file" class="hidden file-input" multiple accept="image/*capture=camera" capture="environment"
+				id="PhotoImage" />
+            <input type="file" class="hidden file-input" multiple accept="image/*" class="file-test" />
+            <input type="text" class="hidden files-text">
+		</div>
+
+		<div class="images"></div>
+	</div>
+</body>
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="js/upload.js"></script>
+
+</html>

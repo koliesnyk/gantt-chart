@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  min-width: 320px;
+  position: relative;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+a {
+  text-decoration: none;
+  background: transparent;
+}
+
+a:visited {
+  -webkit-filter: grayscale(50%);
+          filter: grayscale(50%);
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+a img {
+  border: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  text-transform: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none !important;
+  background-clip: padding-box;
+  background-color: transparent;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type='reset'], input[type='submit'] {
+  cursor: pointer;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+}
+
+input[type='checkbox'], input[type='radio'] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type='search']::-webkit-search-cancel-button, input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+          appearance: none;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+button, html input[type='button'] {
+  cursor: pointer;
+  -webkit-appearance: button;
+     -moz-appearance: button;
+          appearance: button;
+}
+
+select {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 0;
+  vertical-align: top;
+}
+
+.hidden {
+  display: none;
+}
+
+.clearfix {
+  clear: both;
+}
+
+body {
+  font-family: Arial;
+}
+
+.page {
+  margin: 1em auto;
+  max-width: 768px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100%;
+}
+
+.box {
+  padding: 0.5em;
+  width: 100%;
+  margin: 0.5em;
+}
+
+.box-2 {
+  padding: 0.5em;
+  width: calc(100%/2 - 1em);
+}
+
+.options label,
+.options input {
+  width: 4em;
+  padding: 0.5em 1em;
+}
+
+.btn {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  margin: 0.8em 0.3em;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: black;
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.file-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  padding: 2vw 0;
+}
+
+.file-page .hidden {
+  display: none;
+}
+
+.file-page .inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.file-page .inputs input {
+  margin: 1rem;
+}
+
+.file-page .images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.file-page .images .image {
+  margin: 0.5rem;
+  width: 15vw;
+  min-width: 175px;
+  position: relative;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.file-page .images .image:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+.file-page .images .image .img {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+}
+
+.file-page .images .image .img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.file-page .images .image .remove {
+  width: 100%;
+  margin: 0;
+  margin-top: 1rem;
+}
+
+.file-page .files-text {
+  width: 750px;
+  height: 750px;
+}
