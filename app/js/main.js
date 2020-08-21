@@ -35,8 +35,8 @@ $(document).ready(function () {
 					},
 					{
 						name: '500 M',
-						start: '2020-10-01',
-						end: '2020-10-20',
+						start: '2020-09-18',
+						end: '2020-10-21',
 					},
 					{
 						name: '800 M',

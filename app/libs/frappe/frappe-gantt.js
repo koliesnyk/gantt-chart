@@ -592,7 +592,7 @@ var Gantt = (function () {
 				let check_label_width = 0;
 
 				this.stones.forEach((stone, index) => {
-					const stone_start = date_utils.parse(stone.start);
+					const stone_start = date_utils.parse(stone.end);
 					const stone_start_p = this.phase_x(stone_start);
 					const textLength = stone.name.length * 8 + 15;
 
@@ -608,7 +608,7 @@ var Gantt = (function () {
 				});
 
 				this.stones.forEach((stone, index) => {
-					const stone_start = date_utils.parse(stone.start);
+					const stone_start = date_utils.parse(stone.end);
 					const stone_y = bar.getY() + this.height + 10;
 					const text_y = stone_y + this.height / 1.3;
 					const stone_height = this.height;
