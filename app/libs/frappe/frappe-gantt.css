@@ -84,7 +84,8 @@
 	transition: opacity .3s ease;
 }
 
-.stones-group-inner.hide-label .stone-label {
+.stones-group-inner.hide-label .stone-label,
+.phases-group-inner.hide-label .phase-label {
 	opacity: 0 !important;
 	visibility: hidden;
 }
@@ -113,15 +114,15 @@
 	stroke-width: 2px;
 }
 
-.gantt .phase-rect:nth-of-type(1) {
+.gantt .phases-group-inner:nth-of-type(1) .phase-rect {
 	fill: #bac2cc;
 }
 
-.gantt .phase-rect:nth-of-type(2) {
+.gantt .phases-group-inner:nth-of-type(2) .phase-rect {
 	fill: #fefe00;
 }
 
-.gantt .phase-rect:nth-of-type(3) {
+.gantt .phases-group-inner:nth-of-type(3) .phase-rect {
 	fill: #51ff00;
 }
 

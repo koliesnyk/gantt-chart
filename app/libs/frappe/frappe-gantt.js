@@ -557,6 +557,23 @@ var Gantt = (function () {
 					const phase_y = bar.getY() - this.height - 10;
 					const text_x = this.phase_x(phase_start) + phase_width / 2;
 					const text_y = phase_y + this.height / 2;
+					const textLength = phase.name.length * 8;
+					let hide_label_class = '';
+
+					if (textLength > phase_width) {
+						hide_label_class = ' hide-label';
+					}
+
+					this.phases_group_inner = createSVG('g', {
+						class: 'phases-group-inner' + hide_label_class + '',
+						append_to: this.phases_group
+					});
+
+					createSVG('title', {
+						innerHTML: phase.name,
+						class: 'phase phase-title',
+						append_to: this.phases_group_inner
+					});
 
 					createSVG('rect', {
 						x: this.phase_x(phase_start),
@@ -565,7 +582,7 @@ var Gantt = (function () {
 						height: this.height,
 						class: 'phase phase-rect',
 						fill: phase.color,
-						append_to: this.phases_group,
+						append_to: this.phases_group_inner,
 						rx: this.corner_radius,
 						ry: this.corner_radius,
 					});
@@ -575,7 +592,7 @@ var Gantt = (function () {
 						y: text_y,
 						innerHTML: phase.name,
 						class: 'phase phase-label',
-						append_to: this.phases_group
+						append_to: this.phases_group_inner
 					});
 				});
 			}
@@ -1696,6 +1713,9 @@ var Gantt = (function () {
 			const actual_width = this.$svg
 				.querySelector('.grid .grid-row')
 				.getAttribute('width');
+
+			this.$svg.setAttribute('data-element-width', cur_width);
+
 			if (cur_width < actual_width) {
 				this.$svg.setAttribute('width', actual_width);
 			}
@@ -1705,17 +1725,25 @@ var Gantt = (function () {
 			const parent_element = this.$svg.parentElement;
 			if (!parent_element) return;
 
-			const hours_before_first_task = date_utils.diff(
-				this.get_oldest_starting_date(),
-				this.gantt_start,
-				'hour'
-			);
-
+			// setting new scroll position by current date;
+			const wrap_width = parseInt(this.$svg.getAttribute('data-element-width')) / 2;
 			const scroll_pos =
-				hours_before_first_task /
+				date_utils.diff(date_utils.today(), this.gantt_start, 'hour') /
 				this.options.step *
-				this.options.column_width -
-				this.options.column_width;
+				this.options.column_width - wrap_width;
+
+			// const hours_before_first_task = date_utils.diff(
+			// 	this.get_oldest_starting_date(),
+			// 	this.gantt_start,
+			// 	'hour'
+			// );
+
+			// old scroll position
+			// const scroll_pos =
+			// 	hours_before_first_task /
+			// 	this.options.step *
+			// 	this.options.column_width -
+			// 	this.options.column_width;
 
 			parent_element.scrollLeft = scroll_pos;
 		}
