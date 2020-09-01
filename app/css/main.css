@@ -310,3 +310,23 @@ img {
   width: 750px;
   height: 750px;
 }
+
+.preloader {
+  position: fixed;
+  width: 250px;
+  height: 250px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  border: 3px solid #ccc;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: rotate(480deg);
+      -ms-transform: rotate(480deg);
+          transform: rotate(480deg);
+  display: none;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Start Template</title>
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="libs/frappe/frappe-gantt.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<svg id="gantt"></svg>
+
+		<br>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-sm btn-light">Quarter Day</button>
+			<button type="button" class="btn btn-sm btn-light">Half Day</button>
+			<button type="button" class="btn btn-sm btn-light">Day</button>
+			<button type="button" class="btn btn-sm btn-light active">Week</button>
+			<button type="button" class="btn btn-sm btn-light">Month</button>
+			<button type="button" class="btn btn-sm btn-light">Year</button>
+		</div>
+		<br><br>
+	</div>
+
+	<script src="libs/jquery/jquery.min.js"></script>
+  <script src="libs/frappe/frappe-gantt.js"></script>
+  <script>
+    if ($("#gantt").length > 0) {
+      var tasks = [
+        {
+          id: 'Task 1',
+          name: 'Task 1',
+          start: '2020-09-08',
+          end: '2020-09-27',
+          progress: 0,
+          type: 'rhombus'
+        },
+        {
+          id: 'Task 2',
+          name: 'Task 2',
+          start: '2020-08-31',
+          end: '2020-10-27',
+          progress: 0,
+          type: 'line'
+        },
+        {
+          id: 'Task 3',
+          name: 'Task 3',
+          start: '2020-08-31',
+          end: '2020-11-07',
+          progress: 0,
+          type: 'rhombus'
+        }
+      ];
+
+      var gantt = new Gantt("#gantt", tasks, {
+        // header_height: 50,
+        column_width: 30,
+        bar_height: 20,
+        padding: 20,
+        view_mode: 'Month',
+        on_view_change: function (mode) {
+          if (mode == 'Day') {
+            $('.gantt .today-highlight').css('width', 38);
+          } else {
+            $('.gantt .today-highlight').css('width', 5);
+          }
+        }
+      });
+
+      $(document).on('click', '.bar-wrapper', function(e) {
+          e.preventDefault();
+          $('.gantt .bar-wrapper').css('opacity', 0);
+          $('.gantt .arrow').css('opacity', 0);
+          $(this).css('opacity', 1);
+      });
+
+      $(".btn-group").on("click", "button", function () {
+        $btn = $(this);
+        var mode = $btn.text();
+        gantt.change_view_mode(mode);
+        $btn.parent().find('button').removeClass('active');
+        $btn.addClass('active');
+      });
+    }
+  </script>
+</body>
+
+</html>

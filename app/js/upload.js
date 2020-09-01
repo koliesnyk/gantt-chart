@@ -43,8 +43,9 @@ $('.file-input').change(function (e) {
 			reader.readAsDataURL(file);
 		})(files[i]);
 	}
-
-	console.log('after upload :>> ', baseFiles);
+	// var myJSON = JSON.stringify(baseFiles);
+	// $('#upload').val(myJSON);
+	// console.log('myJSON :>> ', myJSON);
 });
 
 $(document).on('click', '.remove', function (e) {
@@ -58,7 +59,6 @@ $(document).on('click', '.remove', function (e) {
 
 	baseFiles.splice(removeIndex, 1);
 	parent.remove();
-	console.log('after remove :>> ', baseFiles);
-	// var myJSON = JSON.stringify(baseFiles);
-	// $('.files-text').val(myJSON);
+	var myJSON = JSON.stringify(baseFiles);
+	$('#upload').val(myJSON);
 });

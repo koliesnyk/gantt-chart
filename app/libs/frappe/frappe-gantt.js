@@ -412,6 +412,7 @@ var Gantt = (function () {
 				this.duration *
 				(this.task.progress / 100) || 0;
 
+			this.type = this.task.type;
 			this.phases = this.task.phases;
 			this.stones = this.task.stones;
 
@@ -419,14 +420,17 @@ var Gantt = (function () {
 				class: 'bar-wrapper ' + (this.task.custom_class || ''),
 				'data-id': this.task.id
 			});
+
 			this.bar_group = createSVG('g', {
 				class: 'bar-group',
 				append_to: this.group
 			});
+
 			this.phases_group = createSVG('g', {
 				class: 'phases-group',
 				append_to: this.group
 			});
+
 			this.stones_group = createSVG('g', {
 				class: 'stones-group',
 				append_to: this.group
@@ -461,18 +465,34 @@ var Gantt = (function () {
 		}
 
 		draw_bar() {
-			this.$bar = createSVG('rect', {
-				x: this.x,
-				y: this.y,
-				width: this.width,
-				height: this.height,
-				rx: this.corner_radius,
-				ry: this.corner_radius,
-				class: 'bar',
-				append_to: this.bar_group
-			});
+			if (this.type == 'rhombus') {
+				this.$bar = createSVG('rect', {
+					x: this.x + 5,
+					y: this.y,
+					width: 15,
+					height: 15,
+					transform: 'rotate(45)',
+					rx: 0,
+					ry: 0,
+					class: 'rhombus',
+					append_to: this.bar_group
+				});
 
-			animateSVG(this.$bar, 'width', 0, this.width);
+				// animateSVG(this.$bar, 'width', 0, this.height);
+			} else {
+				this.$bar = createSVG('rect', {
+					x: this.x,
+					y: this.y,
+					width: this.width,
+					height: this.height,
+					rx: this.corner_radius,
+					ry: this.corner_radius,
+					class: 'bar',
+					append_to: this.bar_group
+				});
+
+				animateSVG(this.$bar, 'width', 0, this.width);
+			}
 
 			if (this.invalid) {
 				this.$bar.classList.add('bar-invalid');
@@ -480,25 +500,31 @@ var Gantt = (function () {
 		}
 
 		draw_progress_bar() {
-			if (this.invalid) return;
-			this.$bar_progress = createSVG('rect', {
-				x: this.x,
-				y: this.y,
-				width: this.progress_width,
-				height: this.height,
-				rx: this.corner_radius,
-				ry: this.corner_radius,
-				class: 'bar-progress',
-				append_to: this.bar_group
-			});
+			// if (this.invalid) return;
+			// this.$bar_progress = createSVG('rect', {
+			// 	x: this.x,
+			// 	y: this.y,
+			// 	width: this.progress_width,
+			// 	height: this.height,
+			// 	rx: this.corner_radius,
+			// 	ry: this.corner_radius,
+			// 	class: 'bar-progress',
+			// 	append_to: this.bar_group
+			// });
 
-			animateSVG(this.$bar_progress, 'width', 0, this.progress_width);
+			// animateSVG(this.$bar_progress, 'width', 0, this.progress_width);
 		}
 
 		draw_label() {
+			let label_y = this.y + this.height / 2;
+
+			if (this.type == 'rhombus') {
+				label_y = this.y + this.height / 2 - 2.5;
+			}
+
 			createSVG('text', {
 				x: this.x + this.width / 2,
-				y: this.y + this.height / 2,
+				y: label_y,
 				innerHTML: this.task.name,
 				class: 'bar-label',
 				append_to: this.bar_group
@@ -944,12 +970,19 @@ var Gantt = (function () {
 			const bar = this.$bar,
 				label = this.group.querySelector('.bar-label');
 
+			let bar_get_x = bar.getX();
+			let bar_width = bar.getWidth();
+
+			if (this.type == 'rhombus') {
+				bar_get_x = bar.getX() + 5;
+			}
+
 			if (label.getBBox().width > bar.getWidth()) {
 				label.classList.add('big');
-				label.setAttribute('x', bar.getX() + bar.getWidth() + 5);
+				label.setAttribute('x', bar_get_x + bar_width + 5);
 			} else {
 				label.classList.remove('big');
-				label.setAttribute('x', bar.getX() + bar.getWidth() / 2);
+				label.setAttribute('x', bar_get_x + bar_width / 2);
 			}
 		}
 

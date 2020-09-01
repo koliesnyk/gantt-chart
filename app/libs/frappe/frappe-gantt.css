@@ -48,6 +48,16 @@
 	user-select: none;
 }
 
+.gantt .rhombus {
+	fill: #fff;
+	stroke: #333;
+	stroke-width: 2px;
+	transition: stroke-width .3s ease;
+	user-select: none;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
 .gantt .bar-progress {
 	fill: #007bff;
 }

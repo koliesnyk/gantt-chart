@@ -94,7 +94,7 @@ $(document).ready(function () {
 					if (e.target.result) {
 						let img = document.createElement('img');
 						img.id = 'image';
-						img.src = e.target.result
+						img.src = e.target.result;
 						result.innerHTML = '';
 						result.appendChild(img);
 						save.classList.remove('hide');
