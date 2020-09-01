@@ -20,6 +20,7 @@ docs
 # Other files & folders
 .idea
 .vscode
+.vs
 docs
 package-lock.json
 sftp-config.json
