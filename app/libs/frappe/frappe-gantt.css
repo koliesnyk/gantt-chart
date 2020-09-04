@@ -89,8 +89,6 @@
 .gantt .stone,
 .gantt .phases-group {
 	fill: #ddd;
-	/* opacity: 0;
-	visibility: hidden; */
 	transition: opacity .3s ease;
 }
 

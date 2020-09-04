@@ -469,8 +469,8 @@ var Gantt = (function () {
 				this.$bar = createSVG('rect', {
 					x: this.x + 5,
 					y: this.y,
-					width: 15,
-					height: 15,
+					width: 18,
+					height: 18,
 					transform: 'rotate(45)',
 					rx: 0,
 					ry: 0,
@@ -516,15 +516,9 @@ var Gantt = (function () {
 		}
 
 		draw_label() {
-			let label_y = this.y + this.height / 2;
-
-			if (this.type == 'rhombus') {
-				label_y = this.y + this.height / 2 - 2.5;
-			}
-
 			createSVG('text', {
 				x: this.x + this.width / 2,
-				y: label_y,
+				y: this.y + this.height / 2,
 				innerHTML: this.task.name,
 				class: 'bar-label',
 				append_to: this.bar_group

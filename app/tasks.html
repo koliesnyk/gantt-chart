@@ -47,15 +47,17 @@
           start: '2020-08-31',
           end: '2020-10-27',
           progress: 0,
-          type: 'line'
+          type: 'line',
+          dependencies: 'Task 1'
         },
         {
           id: 'Task 3',
           name: 'Task 3',
-          start: '2020-08-31',
+          start: '2020-09-02',
           end: '2020-11-07',
           progress: 0,
-          type: 'rhombus'
+          type: 'rhombus',
+          dependencies: 'Task 2'
         }
       ];
 
@@ -63,7 +65,7 @@
         // header_height: 50,
         column_width: 30,
         bar_height: 20,
-        padding: 20,
+        padding: 25,
         view_mode: 'Month',
         on_view_change: function (mode) {
           if (mode == 'Day') {

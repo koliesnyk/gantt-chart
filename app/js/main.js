@@ -1,54 +1,49 @@
 $(document).ready(function () {
 	if ($("#gantt").length > 0) {
-		var tasks = [
-			{
-				id: 'Task 1',
-				name: 'Task 1',
-				start: '2020-08-08',
-				end: '2020-12-27',
-				progress: 0,
-				phases: [
-					{
-						name: 'Phase 1',
-						start: '2020-08-18',
-						end: '2020-10-01',
-						color: 'gray'
-					},
-					{
-						name: 'Phase 2',
-						start: '2020-10-01',
-						end: '2020-11-20',
-						color: 'yellow'
-					},
-					{
-						name: 'Phase 3',
-						start: '2020-11-20',
-						end: '2020-12-24',
-						color: 'green'
-					}
-				],
-				stones: [
-					{
-						name: '300 M',
-						start: '2020-09-18',
-						end: '2020-09-18',
-					},
-					{
-						name: '500 M',
-						start: '2020-09-18',
-						end: '2020-10-21',
-					},
-					{
-						name: '800 M',
-						start: '2020-11-19',
-						end: '2020-12-24',
-					}
-				]
-			}
-		];
+		var tasks = [{
+			id: 'Task 1',
+			name: 'Task 1',
+			start: '2020-08-08',
+			end: '2020-12-27',
+			progress: 0,
+			phases: [{
+					name: 'Phase 1',
+					start: '2020-08-18',
+					end: '2020-10-01',
+					color: 'gray'
+				},
+				{
+					name: 'Phase 2',
+					start: '2020-10-01',
+					end: '2020-11-20',
+					color: 'yellow'
+				},
+				{
+					name: 'Phase 3',
+					start: '2020-11-20',
+					end: '2020-12-24',
+					color: 'green'
+				}
+			],
+			stones: [{
+					name: '300 M',
+					start: '2020-09-18',
+					end: '2020-09-18',
+				},
+				{
+					name: '500 M',
+					start: '2020-09-18',
+					end: '2020-10-21',
+				},
+				{
+					name: '800 M',
+					start: '2020-11-19',
+					end: '2020-12-24',
+				}
+			]
+		}];
 
 		var gantt = new Gantt("#gantt", tasks, {
-			// header_height: 50,
 			column_width: 30,
 			bar_height: 20,
 			padding: 70,
@@ -62,11 +57,11 @@ $(document).ready(function () {
 			}
 		});
 
-		$(document).on('click', '.bar-wrapper', function(e) {
-				e.preventDefault();
-				$('.gantt .bar-wrapper').css('opacity', 0);
-				$('.gantt .arrow').css('opacity', 0);
-				$(this).css('opacity', 1);
+		$(document).on('click', '.bar-wrapper', function (e) {
+			e.preventDefault();
+			$('.gantt .bar-wrapper').css('opacity', 0);
+			$('.gantt .arrow').css('opacity', 0);
+			$(this).css('opacity', 1);
 		});
 	}
 
@@ -80,12 +75,11 @@ $(document).ready(function () {
 
 	if (document.querySelector('#file-input')) {
 		let result = document.querySelector('.result'),
-				options = document.querySelector('.options'),
-				save = document.querySelector('.save'),
-				cropped = document.querySelector('.cropped'),
-				dwn = document.querySelector('.download'),
-				upload = document.querySelector('#file-input'),
-				cropper = '';
+			save = document.querySelector('.save'),
+			cropped = document.querySelector('.cropped'),
+			dwn = document.querySelector('.download'),
+			upload = document.querySelector('#file-input'),
+			cropper = '';
 
 		upload.addEventListener('change', (e) => {
 			if (e.target.files.length) {
